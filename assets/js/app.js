@@ -11,50 +11,55 @@ function cardI(cardItem){
   const card = document.createElement('div')
   card.classList.add('card')
 
-  
-
   tela.appendChild(card)
 
   card.innerHTML = `<img data-marca="${cardItem}" src="/assets/imgs/${cardItem}.png" />`
 
 }
+let firstCard, secondCard;
 
 function viraCard(){
   const cards = document.querySelectorAll('.card')
   cards.forEach((card) => {
-    card.addEventListener("click", function(event){
+    card.addEventListener("click", function(){
       card.classList.add('viracard')
-
-      
-      
-
-      validaCard(card)
-
-
       setTimeout(() => {
-        card.classList.toggle('viracard')
+        card.classList.remove('viracard')
+        console.log('remove')
       }, 1000);
+      
+      if(!firstCard) {
+        firstCard = this
+        return false
+      }
+
+      secondCard = this
+      
+      let isMatch = firstCard.querySelector('img').dataset.marca === secondCard.querySelector('img').dataset.marca
+      console.log(isMatch)
+
+      if(isMatch){
+       
+        
+        firstCard.classList.add('fixo')
+        secondCard.classList.add('fixo')
+
+        firstCard = ''
+        secondCard = ''
+        
+      } else {
+        console.log("NO")
+        firstCard = ''
+        secondCard = ''
+      
+      }      
     })
   })
 
 }
 
-function validaCard(card) {
-  //const cardImg = document.querySelector(card)
-  //console.log(cardImg)
-
-  const itensArr = []
- 
-
-  itensArr.push(card.querySelector('img').dataset.marca)
-  
-  
 
 
-  
- 
-  
-}
 
 
 function initGame(){

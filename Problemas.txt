@@ -1,8 +1,8 @@
 Problemas
 - Capa do card = OK
 - Destribuir cards aleatoriamente
-- Validar Quando for o mesmo card
-- Descobrir como fazer o $ do jQuery na mão
+- Validar Quando for o mesmo card = OK
+
 
 Validacao
-- Os cards nao podem virar novamente
+- Os cards nao podem virar novamente = OK
